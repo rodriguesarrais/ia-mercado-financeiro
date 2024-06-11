@@ -51,11 +51,15 @@
         <button id="snap">Capture Photo</button>
         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
     </div>
+    <br/>
+    <input placeholder="nome" id="studentName"/>
     <script>
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const snap = document.getElementById('snap');
         const context = canvas.getContext('2d');
+
+        const student = document.getElementById('studentName')
 
         // Acesso à webcam
         navigator.mediaDevices.getUserMedia({ video: true })
@@ -71,11 +75,16 @@
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             // Converte o canvas para data URL
             const dataURL = canvas.toDataURL('image/png');
+            const studentName = student.value.trim();
 
+            if (studentName === "") {
+                alert("Por favor, insira o nome do estudante.");
+                return;
+            }
             // Envia a imagem para o servidor
             fetch('/upload', {
                 method: 'POST',
-                body: JSON.stringify({ image: dataURL }),
+                body: JSON.stringify({ image: dataURL, student: studentName }),
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => response.json())
                 .then(data => {

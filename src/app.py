@@ -6,7 +6,7 @@ import time
 app = Flask(__name__)
 
 # Caminho para salvar as imagens
-IMAGE_FOLDER = os.path.join(os.getcwd(), 'reconhecimento-facial-frequencia/src/training')
+IMAGE_FOLDER = os.path.join(os.getcwd(), 'training')
 if not os.path.exists(IMAGE_FOLDER):
     os.makedirs(IMAGE_FOLDER)
 
@@ -18,10 +18,12 @@ def index():
 def upload():
     data = request.json
     img_data = data['image']
+    student_name = data['student'].replace(' ', '_')
+
     img_data = img_data.replace('data:image/png;base64,', '')
     img_data = base64.b64decode(img_data)
     
-    file_name = f"photo_{int(time.time())}.png"
+    file_name = f"{student_name}.png"
     file_path = os.path.join(IMAGE_FOLDER, file_name)
 
     with open(file_path, 'wb') as f:
