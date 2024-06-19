@@ -1,4 +1,4 @@
-# Sistema de reconhecimento facial para frequência escolar
+# Chatbot Especializado no Transtorno do Espectro Autista
 
 ## Instalação
 
