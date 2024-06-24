@@ -1,5 +1,4 @@
-# Chatbot Especializado no Transtorno do Espectro Autista
-
+# Análise e previsão de tendências em dados do mercado financeiro
 ## Instalação
 
 Ative o ambiente virtual com ``virtualenv``. Após isso, rode o comando ``pip install -r requirements.txt``.
