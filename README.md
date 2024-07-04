@@ -1,8 +1,6 @@
 # Análise e previsão de tendências em dados do mercado financeiro
 ## Instalação
 
-Ative o ambiente virtual com ``virtualenv``. Após isso, rode o comando ``pip install -r requirements.txt``.
+## Como rodar o projeto
 
-## Avisos
-
-Lembre-se de sempre que instalar uma nova dependência no venv, atualizar o ``requirements.txt``. Usar o virtualenv é crucial pra manter a organização das dependências.
+primeiro, instale as bibliotecas `scikit-learn`, `yfinance`, `pandas`, `jupyter` e `matplotlib`, preferivelmente em um ambiente virtual. após isso, execute o comando `jupyter notebook` e execute `src/stock_market_linear_regression.ipynb` ou `src/stock_market_random_forest.ipynb`.
